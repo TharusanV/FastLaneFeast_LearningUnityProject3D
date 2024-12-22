@@ -6,8 +6,8 @@ using UnityEngine;
 public class SelectableCounterVisualScript : MonoBehaviour
 {
     
-    [SerializeField] private GameObject visualGameObject;
-    [SerializeField] private BaseCounter baseCounterObject;
+    [SerializeField] private GameObject[] visualGameObjectArray;
+    [SerializeField] private ParentClass_Counter counterObject;
     [SerializeField] private PlayerInteractObjects playerInteractObjects;
 
     private void Start(){
@@ -15,7 +15,7 @@ public class SelectableCounterVisualScript : MonoBehaviour
     }
 
     private void PlayerInteractObjects_OnClosestCounterChange(object sender, PlayerInteractObjects.OnClosestCounterChangeEventArgs e){
-      if(e.closestCounterRef == baseCounterObject){
+      if(e.closestCounterRef == counterObject){
         Show();
       }
       else{
@@ -24,10 +24,14 @@ public class SelectableCounterVisualScript : MonoBehaviour
     }
 
     private void Show(){
-      visualGameObject.SetActive(true);
+      foreach (GameObject visualGameObject in visualGameObjectArray){
+        visualGameObject.SetActive(true);
+      }
     }
 
     private void Hide(){
-      visualGameObject.SetActive(false);
+      foreach (GameObject visualGameObject in visualGameObjectArray){
+        visualGameObject.SetActive(false);
+      }
     }
 }

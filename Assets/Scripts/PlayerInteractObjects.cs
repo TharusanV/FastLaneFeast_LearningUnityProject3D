@@ -11,7 +11,7 @@ public class PlayerInteractObjects : MonoBehaviour, IKitchenObjectParent
     private Vector3 lastInteractDir;
     [SerializeField] private LayerMask counter_LayerMask;
 
-    private BaseCounter closestCounter;
+    private ParentClass_Counter closestCounter;
 
     public event EventHandler<OnClosestCounterChangeEventArgs> OnClosestCounterChange; //Define an event
 
@@ -31,7 +31,7 @@ public class PlayerInteractObjects : MonoBehaviour, IKitchenObjectParent
     }
 
     public class OnClosestCounterChangeEventArgs : EventArgs{
-        public BaseCounter closestCounterRef;
+        public ParentClass_Counter closestCounterRef;
     }
 
     private void HandleClosestInteractions() {
@@ -48,11 +48,11 @@ public class PlayerInteractObjects : MonoBehaviour, IKitchenObjectParent
         if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, counter_LayerMask)) {
             //Specify 'out' means its an output paramater, by default all paramaters are input
 
-            BaseCounter baseCounter = raycastHit.transform.GetComponent<BaseCounter>();
-            if (baseCounter != null) { 
-                //Has Base Counter
-                if(baseCounter != closestCounter){
-                    SetClosestCounter(baseCounter);
+            ParentClass_Counter anyCounter = raycastHit.transform.GetComponent<ParentClass_Counter>();
+            if (anyCounter != null) { 
+                //Has a Counter
+                if(anyCounter != closestCounter){
+                    SetClosestCounter(anyCounter);
                 }
             }
             else{
@@ -73,7 +73,7 @@ public class PlayerInteractObjects : MonoBehaviour, IKitchenObjectParent
         }
     }
 
-    private void SetClosestCounter(BaseCounter selectedCounter){
+    private void SetClosestCounter(ParentClass_Counter selectedCounter){
         this.closestCounter = selectedCounter;
 
         if(OnClosestCounterChange != null){ 
