@@ -1,16 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerInteractObjects : MonoBehaviour
+public class PlayerInteractObjects : MonoBehaviour, IKitchenObjectParent
 {
 
     [SerializeField] private PlayerGameInput playerInput; 
     private Vector3 lastInteractDir;
     [SerializeField] private LayerMask counter_LayerMask;
 
-    private ClearCounterScript closestCounter;
+    private BaseCounter closestCounter;
+
+    public event EventHandler<OnClosestCounterChangeEventArgs> OnClosestCounterChange; //Define an event
+
+
+    private KitchenObject kitchenObject;
+    [SerializeField] private Transform itemHoldPoint;
 
 
     // Start is called before the first frame update
@@ -21,6 +28,10 @@ public class PlayerInteractObjects : MonoBehaviour
     // Update is called once per frame
     void Update(){
          HandleClosestInteractions();
+    }
+
+    public class OnClosestCounterChangeEventArgs : EventArgs{
+        public BaseCounter closestCounterRef;
     }
 
     private void HandleClosestInteractions() {
@@ -37,19 +48,20 @@ public class PlayerInteractObjects : MonoBehaviour
         if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, counter_LayerMask)) {
             //Specify 'out' means its an output paramater, by default all paramaters are input
 
-            ClearCounterScript clearCounter = raycastHit.transform.GetComponent<ClearCounterScript>();
-            if (clearCounter != null) { 
-                //Has Clear Counter
-                if(clearCounter != closestCounter){
-                    closestCounter = clearCounter;
+            BaseCounter baseCounter = raycastHit.transform.GetComponent<BaseCounter>();
+            if (baseCounter != null) { 
+                //Has Base Counter
+                if(baseCounter != closestCounter){
+                    SetClosestCounter(baseCounter);
                 }
             }
             else{
-                closestCounter = null;
+                SetClosestCounter(null);
+
             }
         }
         else{
-            closestCounter = null;
+            SetClosestCounter(null);
         }
 
         //Debug.Log(closestCounter);
@@ -57,8 +69,43 @@ public class PlayerInteractObjects : MonoBehaviour
 
     private void OnInteractAction(object sender, System.EventArgs e) {
         if(closestCounter != null){
-            closestCounter.Interact(closestCounter);
+            closestCounter.Interact(this);
         }
     }
+
+    private void SetClosestCounter(BaseCounter selectedCounter){
+        this.closestCounter = selectedCounter;
+
+        if(OnClosestCounterChange != null){ 
+            //We are checking if there are any listeners at all, if there are then send if there isn't then there is no point
+            //You can remove this entire block to do the same thing and just do OnClosestCounterChange?.Invoke(this, EventArgs.Empty);
+            OnClosestCounterChange(this, new OnClosestCounterChangeEventArgs{closestCounterRef = closestCounter});
+        }
+    }
+
+
+
+
+
+    public Transform GetItemPlacementTransform(){
+        return itemHoldPoint;
+    }
+
+    public void SetKitchenObject(KitchenObject kitchenObject){
+        this.kitchenObject = kitchenObject;
+    }
+
+    public KitchenObject GetKitchenObject(){
+        return kitchenObject;
+    }
+
+    public void ClearKitchenObject(){
+        kitchenObject = null;
+    }
+
+    public bool HasKitchenObject(){
+        return kitchenObject != null;
+    }
+    
 
 }
