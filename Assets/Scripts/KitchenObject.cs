@@ -7,11 +7,11 @@ public class KitchenObject : MonoBehaviour
 
     //We use this script on the parent object that represents a scriptable object in order to create a reference to it as scriptable objects are not monotype
 
-    [SerializeField] private KitchenObjectSO kitchenObjectSO;
+    [SerializeField] private KitchenObjectSO prefab;
     private IHoldObjectParent objectHolder;
 
     public KitchenObjectSO GetKitchenObjectSO(){
-        return kitchenObjectSO;
+        return prefab;
     }
 
     public void SetKitchenObjectParent(IHoldObjectParent newObjectHolder) {

@@ -94,6 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPlacement: {fileID: 8130445042156035513}
+  cuttingRecipesSOArray:
+  - {fileID: 11400000, guid: d2780d29ac2269b4d816f84862ebc8e1, type: 2}
 --- !u!4 &8130445042156035513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8324371549982153397, guid: e124110580d1f25459c4e5c92ba204d9,
