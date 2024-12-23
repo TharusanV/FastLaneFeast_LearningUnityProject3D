@@ -7,34 +7,52 @@ public class KitchenObject : MonoBehaviour
 
     //We use this script on the parent object that represents a scriptable object in order to create a reference to it as scriptable objects are not monotype
 
-    [SerializeField] private ScriptableObject_KitchenObject kitchenObjectSO;
-    private IKitchenObjectParent kitchenObjectParent;
+    [SerializeField] private KitchenObjectSO kitchenObjectSO;
+    private IHoldObjectParent objectHolder;
 
-    public ScriptableObject_KitchenObject GetKitchenObjectSO(){
+    public KitchenObjectSO GetKitchenObjectSO(){
         return kitchenObjectSO;
     }
 
-    public void SetKitchenObjectParent(IKitchenObjectParent newKitchenObjectParent) {
+    public void SetKitchenObjectParent(IHoldObjectParent newObjectHolder) {
         //We clear the old counter object in the counter script by calling the function in that script
-        if(this.kitchenObjectParent != null){
-            this.kitchenObjectParent.ClearKitchenObject();
+        if(this.objectHolder != null){
+            this.objectHolder.ClearHeldObject();
         }
 
         //Add new counter where the object will be
-        this.kitchenObjectParent = newKitchenObjectParent; 
-        if(newKitchenObjectParent.HasKitchenObject() ){
+        this.objectHolder = newObjectHolder; 
+        if(newObjectHolder.IsHoldingObject() ){
             //Safety check to ensure that the counter is not holding something
             Debug.Log("Counter already has object");
         }
-        newKitchenObjectParent.SetKitchenObject(this);
+        newObjectHolder.SetHeldObject(this);
         
         //update visual
-        transform.parent = newKitchenObjectParent.GetItemPlacementTransform(); //Move the visual
+        transform.parent = newObjectHolder.GetItemPlacementTransform(); //Move the visual
         transform.localPosition = Vector3.zero;
     }
 
-    public IKitchenObjectParent GetKitchenObjectParent(){
-        return kitchenObjectParent;
+    public IHoldObjectParent GetKitchenObjectParent(){
+        return objectHolder;
+    }
+
+    public void DestroySelf(){
+        objectHolder.ClearHeldObject();
+
+        Destroy(gameObject); //Could be a problem if you got bare objects
+
+        //Use this function is other scripts by just doing GetKitchenObject().DestroySelf()
+    }
+
+    public static KitchenObject SpawnObject(KitchenObjectSO kitchenObjectSO, IHoldObjectParent objectHolder) {
+        Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab);
+
+        KitchenObject kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
+        
+        kitchenObject.SetKitchenObjectParent(objectHolder);
+
+        return kitchenObject;
     }
 
 
