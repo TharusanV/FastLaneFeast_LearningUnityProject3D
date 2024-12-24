@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1615d77cf7e1b69478679800d3a2a598, type: 3}
-  m_Name: Plate
+  m_Name: BurgerBun
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5275673760673054814, guid: 93222b92eb4786d4ea9894603ed0065d, type: 3}
-  sprite: {fileID: 21300000, guid: 3928afb5321bb3d489bbd4ac581b29a2, type: 3}
-  objectName: Plate
+  prefab: {fileID: 5275673760673054814, guid: 8c7a068a620b3084d824df6f963f1280, type: 3}
+  sprite: {fileID: 21300000, guid: 77b28124b8bda494381c80bd5aa42c22, type: 3}
+  objectName: BurgerBun
