@@ -9,6 +9,7 @@ public class KitchenObject : MonoBehaviour
 
     [SerializeField] private KitchenObjectSO prefab;
     private IHoldObjectParent objectHolder;
+    public bool canCut;
 
     public KitchenObjectSO GetKitchenObjectSO(){
         return prefab;

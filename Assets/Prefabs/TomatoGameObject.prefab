@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 11400000, guid: f1ce492af5414dd46b914b1714eed775, type: 2}
+  canCut: 1
 --- !u!1001 &4347241057920781650
 PrefabInstance:
   m_ObjectHideFlags: 0
