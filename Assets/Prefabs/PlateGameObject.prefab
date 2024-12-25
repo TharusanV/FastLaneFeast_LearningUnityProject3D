@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2140536304930722424}
+  - component: {fileID: 7913912967591128968}
   m_Layer: 0
   m_Name: IconTemplate
   m_TagString: Untagged
@@ -33,11 +34,24 @@ RectTransform:
   m_Father: {fileID: 9016718079348223321}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.45, y: -0.45}
-  m_SizeDelta: {x: 0.3, y: 0.3}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7913912967591128968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805719936525782867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854cf1dd9b3936a4c8032d4f78f897fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 3714068898367988796}
 --- !u!1 &4067830722411522930
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +143,7 @@ GameObject:
   - component: {fileID: 3388176509314609806}
   - component: {fileID: 3342578112748795486}
   - component: {fileID: 7926155103098369430}
+  - component: {fileID: 5993627764962321134}
   m_Layer: 0
   m_Name: PlateIconsUI_Canvas
   m_TagString: Untagged
@@ -254,6 +269,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c27d831659f3d04d8d7ec56edfafc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plateKitchenObject: {fileID: 7261454527116207797}
+  iconTemplate: {fileID: 2140536304930722424}
+--- !u!114 &5993627764962321134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5207108791899234385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c548de200d3fa14f97a7c17ac9fc502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 2
 --- !u!1 &7213219965920585075
 GameObject:
   m_ObjectHideFlags: 0
