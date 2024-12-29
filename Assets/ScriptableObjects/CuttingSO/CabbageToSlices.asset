@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6656adee54b5be8448ca014e52df07be, type: 3}
-  m_Name: Salad
+  m_Script: {fileID: 11500000, guid: f218154b4af282a449181e6fd6e935f4, type: 3}
+  m_Name: CabbageToSlices
   m_EditorClassIdentifier: 
-  kitchenObjectSOList:
-  - {fileID: 11400000, guid: 1465099f736000e4eb03a061e598e4bb, type: 2}
-  - {fileID: 11400000, guid: 6d964e2b856ddba4087f88ae36339496, type: 2}
-  recipeName: Salad
+  input: {fileID: 11400000, guid: ea2a487fae158cf41bf3c355b741b9ce, type: 2}
+  output: {fileID: 11400000, guid: 1465099f736000e4eb03a061e598e4bb, type: 2}
+  cuttingProgressMax: 3

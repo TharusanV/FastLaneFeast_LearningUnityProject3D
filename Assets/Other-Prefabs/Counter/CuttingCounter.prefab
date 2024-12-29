@@ -202,6 +202,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProgressBarUI_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4157163853137215286, guid: 18b9beb50381f70449749c16239c9690,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5003508078760133158, guid: 18b9beb50381f70449749c16239c9690,
         type: 3}
       propertyPath: m_Pivot.x
