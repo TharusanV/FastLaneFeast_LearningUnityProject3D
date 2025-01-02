@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b914f9a82854d40b4f6a48d93b2f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 11400000, guid: f1ce492af5414dd46b914b1714eed775, type: 2}
+  prefab: {fileID: 11400000, guid: ea2a487fae158cf41bf3c355b741b9ce, type: 2}
   canCut: 1
 --- !u!1001 &5535756735911318143
 PrefabInstance:

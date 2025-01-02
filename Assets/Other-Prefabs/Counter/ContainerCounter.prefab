@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPlacement: {fileID: 7180722695052561700}
-  kitchenObjectSO: {fileID: 11400000, guid: f1ce492af5414dd46b914b1714eed775, type: 2}
+  kitchenObjectSO: {fileID: 0}
 --- !u!4 &7180722695052561700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8324371549982153397, guid: e124110580d1f25459c4e5c92ba204d9,
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef1f55d1c31aa342af768fed0514ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerCounter: {fileID: 1790837056860633083}
+  containerCounter: {fileID: 0}
 --- !u!1001 &3830619537912670261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -348,7 +348,7 @@ MonoBehaviour:
   - {fileID: 6436245081764715866}
   - {fileID: 4911430139080733395}
   - {fileID: 3589346479098242878}
-  counterObject: {fileID: 1790837056860633083}
+  counterObject: {fileID: 0}
   playerInteractObjects: {fileID: 0}
 --- !u!1 &3589346479098242878 stripped
 GameObject:
